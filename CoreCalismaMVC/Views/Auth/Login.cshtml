@@ -1,0 +1,37 @@
+﻿@model Entities.DTOs.UserForLoginDto
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="~/inspinia-gh-pages/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/inspinia-gh-pages/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/inspinia-gh-pages/css/animate.css" rel="stylesheet">
+    <link href="~/inspinia-gh-pages/css/style.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div style="margin-top:100px" class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <h3>Welcome Ramazan</h3>
+            <form class="m-t" role="form" action="index.html">
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "E-mail" })
+                </div>
+                <div class="form-group">
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Password" })
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+            </form>
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script src="~/inspinia-gh-pages/js/jquery-3.1.1.min.js"></script>
+    <script src="~/inspinia-gh-pages/js/popper.min.js"></script>
+    <script src="~/inspinia-gh-pages/js/bootstrap.js"></script>
+</body>
+</html>

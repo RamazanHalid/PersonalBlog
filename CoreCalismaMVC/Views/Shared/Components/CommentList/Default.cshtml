@@ -1,0 +1,11 @@
+﻿@model List<Entities.Concrete.Comment>
+
+@foreach (var item in Model)
+{
+    <p>@item.CommentID</p>
+
+    <p>@item.BlogID</p>
+    <p>@item.CommentTitle</p>
+    <p>@item.CommentUserName</p>
+    <p>@item.CommentContent</p>
+}
