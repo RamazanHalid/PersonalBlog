@@ -8,7 +8,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=BlogDenemesi2;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=localhost;Database=RamazanBlog;Trusted_Connection=true");
         }
 
         public DbSet<OperationClaim> OperationClaims { get; set; }
