@@ -18,5 +18,11 @@
         public static string GetAllComments = "Bütün yorumlar listelendi";
 
         public static string GetComment = "Yorum dündürüldü";
+
+        public static string GetAllSuccessfuly = "Get all successfuly!";
+        public static string AddedSuccessfuly = "Added successfuly!";
+        public static string UpdatedSuccessfuly = "Updated successfuly!";
+        public static string DeletedSuccessfuly = "Deleted successfuly!";
+        public static string GetByIdSuccessfuly = "Get special item is successfuly!";
     }
 }

@@ -20,12 +20,11 @@ namespace Business.DependencyResolvers.Autofac
         protected override void Load(ContainerBuilder builder)
         {
 
-
-
-
             builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<EfUserDal>().As<IUserDal>();
+
             builder.RegisterType<BlogCategoryManager>().As<IBlogCategoryService>();
+            builder.RegisterType<EfBlogCategoryDal>().As<IBlogCategoryDal>();
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
