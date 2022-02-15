@@ -1,18 +1,23 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrete;
 using Entities.DTOs;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Security.Claims;
 
 namespace BlogWebApi.Controllers
 {
     public class AuthorizationController : Controller
     {
         private readonly IAuthService _authService;
-
-        public AuthorizationController(IAuthService authService)
+        private readonly IUserService _userService;
+        public AuthorizationController(IAuthService authService, IUserService userService)
         {
             _authService = authService;
+            _userService = userService;
         }
-
         public IActionResult Index()
         {
             return View();
@@ -31,6 +36,15 @@ namespace BlogWebApi.Controllers
                 ViewData["Message"] = result.Message;
                 return View();
             }
+            //Create the identity for the user  
+            var identity = new ClaimsIdentity(new[] {
+                    new Claim(ClaimTypes.Name, result.Data.FirstName),
+                    new Claim(ClaimTypes.NameIdentifier,result.Data.FirstName)
+                }, CookieAuthenticationDefaults.AuthenticationScheme);
+            var roles = _userService.GetClaims(result.Data);
+            roles.ForEach(role => identity.AddClaim(new Claim(ClaimTypes.Role, role.Name)));
+            var principal = new ClaimsPrincipal(identity);
+            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
             return RedirectToAction("Index", "HomePage", new { area = "Admin" });
 
         }
@@ -59,5 +73,6 @@ namespace BlogWebApi.Controllers
             }
             return RedirectToAction("Login");
         }
+
     }
 }

@@ -45,7 +45,7 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<User>("Wrong Password!");
             }
-            return new SuccessDataResult<User>("Login Successfuly!");
+            return new SuccessDataResult<User>(userToCheck, "Login Successfuly!");
         }
 
         public IResult UserExists(string email)
@@ -62,6 +62,11 @@ namespace Business.Concrete
             var claims = _userService.GetClaims(user);
             var accessToken = _tokenHelper.CreateToken(user, claims);
             return new SuccessDataResult<AccessToken>(accessToken, "Token oluşturuldu");
+        }
+
+        public IDataResult<AccessToken> CreateAuth(User user)
+        {
+            return null;
         }
     }
 }

@@ -20,14 +20,14 @@ namespace Core.Extensions
 
         public async Task InvokeAsync(HttpContext httpContext)
         {
-            try
-            {
-                await _next(httpContext);
-            }
-            catch (Exception e)
-            {
-                await HandleExceptionAsync(httpContext, e);
-            }
+            //try
+            //{
+            await _next(httpContext);
+            //}
+            //catch (Exception e)
+            //{
+            //    await HandleExceptionAsync(httpContext, e);
+            //}
         }
 
         private Task HandleExceptionAsync(HttpContext httpContext, Exception e)
@@ -40,7 +40,7 @@ namespace Core.Extensions
             if (e.GetType() == typeof(ValidationException))
             {
                 message = e.Message;
-                errors = ((ValidationException) e).Errors;
+                errors = ((ValidationException)e).Errors;
                 httpContext.Response.StatusCode = 400;
 
                 return httpContext.Response.WriteAsync(new ValidationErrorDetails
