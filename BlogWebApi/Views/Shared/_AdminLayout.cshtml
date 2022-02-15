@@ -21,10 +21,7 @@
                     <li class="nav-header">
                         <div class="dropdown profile-element">
                             <img alt="image" class="rounded-circle" width="100" src="~/Admin/42031794.jpg" />
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <span class="block m-t-xs font-bold">Ramazan Halid</span>
-                                <span class="text-muted text-xs block">Computer Engineer <b class="caret"></b></span>
-                            </a>
+                            @await Component.InvokeAsync("UserInfo")
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
                                 <li><a class="dropdown-item" href="#">Contacts</a></li>
@@ -36,10 +33,13 @@
                         </div>
                     </li>
                     <li>
+                        <a href="~/Admin/HomePage/Index"><i class="fa fa-diamond"></i> <span class="nav-label">Home Page</span></a>
+                    </li>
+                    <li>
                         <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Blog</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="#">Blogs</a></li>
-                            <li><a href="#">Blog Categories</a></li>
+                            <li><a href="~/Admin/BlogCategory/Index">Blog Categories</a></li>
                         </ul>
                     </li>
                 </ul>

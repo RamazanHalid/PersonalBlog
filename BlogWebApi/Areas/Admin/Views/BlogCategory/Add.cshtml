@@ -1,0 +1,34 @@
+﻿@model Entities.Concrete.BlogCategory
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<div class="ibox-content ">
+    <div>
+        <h2>Add New Blog Category</h2>
+    </div>
+
+</div>
+<br />
+<div class="ibox-content">
+    @using (Html.BeginForm("Add", "BlogCategory", FormMethod.Post, new { @class = "m-t", area = "Admin" }))
+    {
+        <div class="modal-body">
+            <div class="form-group ">
+                <label class=" col-form-label">Blog Category Name Tr</label>
+                @Html.TextBoxFor(m => m.CategoryNameTr, new { @class = "form-control" })
+
+            </div>
+            <div class="form-group ">
+                <label class="col-form-label">Blog Category Name En</label>
+                @Html.TextBoxFor(m => m.CategoryNameEn, new { @class = "form-control" })
+
+            </div>
+        </div>
+        @ViewData["Message"]
+        <div style="text-align:center">
+            <button type="submit" class="btn btn-success" style="width:120px">Save</button>
+        </div>
+    }
+</div>

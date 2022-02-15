@@ -1,0 +1,38 @@
+﻿@model List<Entities.Concrete.BlogCategory>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<div class="ibox-content row">
+    <div class="col-6">
+        <h2>Blog Categories</h2>
+    </div>
+    <div class="col-6" style="text-align:right">
+        <a href="~/Admin/BlogCategory/Add" class="btn btn-outline btn-primary"><i class="fa fa-solid fa-plus"></i> Add New Blog Category</a>
+    </div>
+</div>
+<br />
+<div class="ibox-content">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Category Name Tr</th>
+                <th>Category Name En</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td></td>
+                    <td>@item.CategoryNameTr</td>
+                    <td>@item.CategoryNameEn</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
