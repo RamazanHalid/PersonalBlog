@@ -1,10 +1,11 @@
 ﻿using Core.Entities.Concrete;
+using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework
 {
     //Context : Db tabloları ile proje classlarını bağlamak
-    public class NorthwindContext : DbContext
+    public class PersonalBlogContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -14,6 +15,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+        public DbSet<BlogCategory> BlogCategories { get; set; }
 
     }
 }
