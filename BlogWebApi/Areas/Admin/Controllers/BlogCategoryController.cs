@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,24 +14,31 @@ namespace BlogMVC.Areas.Admin.Controllers
         {
             _blogCategoryService = blogCategoryService;
         }
-
         public IActionResult Index()
         {
             var result = _blogCategoryService.GetAll();
             return View(result.Data);
         }
         [HttpGet]
-        public IActionResult Add()
+        public IActionResult Add(int id)
         {
+            if (id > 0)
+            {
+                var blogCategory = _blogCategoryService.GetById(id).Data;
+                return View(blogCategory);
+            }
             return View();
         }
         [HttpPost]
         public IActionResult Add(BlogCategory blogCategory)
         {
-            var result = _blogCategoryService.Add(blogCategory);
+            IResult result;
+            if (blogCategory.BlogCategoryId > 0)
+                result = _blogCategoryService.Update(blogCategory);
+            else
+                result = _blogCategoryService.Add(blogCategory);
             if (result.Success)
             {
-                blogCategory = new BlogCategory();
                 return RedirectToAction("Index");
             }
             ViewData["Message"] = result.Message;
