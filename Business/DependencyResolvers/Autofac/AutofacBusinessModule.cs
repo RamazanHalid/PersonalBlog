@@ -26,6 +26,16 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<BlogCategoryManager>().As<IBlogCategoryService>();
             builder.RegisterType<EfBlogCategoryDal>().As<IBlogCategoryDal>();
 
+
+            builder.RegisterType<BlogManager>().As<IBlogService>();
+            builder.RegisterType<EfBlogDal>().As<IBlogDal>();
+
+            builder.RegisterType<WhatIDoManager>().As<IWhatIDoService>();
+            builder.RegisterType<EfWhatIDoDal>().As<IWhatIDoDal>();
+
+            builder.RegisterType<EducationManager>().As<IEducationService>();
+            builder.RegisterType<EfEducationDal>().As<IEducationDal>();
+
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
