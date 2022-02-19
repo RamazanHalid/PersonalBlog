@@ -1,0 +1,20 @@
+﻿@model List<Entities.DTOs.WhatIDoDto>
+<div class="row">
+    @foreach (var item in @Model)
+    {
+        <div class="col-xs-12 col-sm-6">
+            <div class="info-list-w-icon">
+                <div class="info-block-w-icon">
+                    <div class="ci-icon">
+                        <i class="@item.Image"></i>
+                    </div>
+
+                    <div class="ci-text">
+                        <h4>@item.HeaderEn</h4>
+                        <p>@item.ContentSummaryEn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

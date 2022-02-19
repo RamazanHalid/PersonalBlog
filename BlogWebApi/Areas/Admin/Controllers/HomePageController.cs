@@ -15,11 +15,11 @@ namespace BlogWebApi.Areas.Admin.Controllers
             _blogCategoryService = blogCategoryService;
         }
 
-        [Authorize]
+    
         [Area("Admin")]
         public IActionResult Index()
         {
-            return View(_blogCategoryService.GetAll().Data);
+            return View();
         }
         [Area("Admin")]
         [HttpPost]
