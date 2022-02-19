@@ -1,0 +1,76 @@
+﻿@model Entities.Concrete.Blog
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="main" class="site-main">
+    <div id="main-content" class="single-page-content">
+        <div id="primary" class="content-area">
+            <div id="content" class="page-content site-content" role="main">
+                <article class="post">
+                    <header class="entry-header">
+                        <div class="entry-meta entry-meta-top">
+                            <span><a href="#" rel="category tag">@Model.BlogCategory.CategoryNameEn</a></span>
+                        </div><!-- .entry-meta -->
+                        <h2 class="entry-title">@Model.HeaderEn</h2>
+                    </header><!-- .entry-header -->
+                    <div class="post-thumbnail">
+                        <img src="@Model.Image" alt="" />
+                    </div>
+                    <div class="post-content">
+                        <div class="entry-content">
+
+                            <div class="row">
+                                <div class=" col-xs-12 col-sm-12 ">
+
+                                    @Html.Raw(Model.TextEn)
+                                </div>
+                            </div>
+                        </div><!-- .entry-content -->
+                        <div class="entry-meta entry-meta-bottom">
+                            <div class="date-author">
+
+                                <span class="entry-date">
+                                    <a href="#" rel="bookmark">
+                                        <i class="far fa-clock"></i>
+                                        <time class="entry-date">@Model.CreatedDate.ToString("dd.MM.yyyy").Replace(".", "/")</time>
+                                    </a>
+                                </span>
+                            </div>
+                            <!-- Share Buttons -->
+                            <div class="entry-share btn-group share-buttons">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=" onclick="deneme(this.href)" class="btn" target="_blank" title="Share on Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+
+                                <a href="#" onclick="deneme(this.href)" class="btn" target="_blank" title="Share on Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=" onclick="deneme(this.href)" class="btn" title="Share on LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                            <!-- /Share Buttons -->
+                        </div>
+                        <div class="post-tags">
+                            <span class="tags">
+                                @foreach (var item in Model.KeyWords.Split(','))
+                                {
+
+                                <a href="#" rel="tag">@item</a>
+                                }
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function deneme(u) {
+        window.open(u + window.location.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+        return false;
+    }
+</script>
