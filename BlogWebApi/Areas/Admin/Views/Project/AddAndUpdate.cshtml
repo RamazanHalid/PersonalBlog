@@ -1,0 +1,134 @@
+﻿@model Entities.DTOs.ProjectWithImage
+@{
+    ViewData["Title"] = "AddAndUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("AddAndUpdate", "Project", FormMethod.Post, new { @class = "m-t", area = "Admin", enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.ProjectId)
+    @Html.HiddenFor(m => m.Image)
+    <div class="ibox-content ">
+        <div class="row">
+            <div class="col-9">
+                <h2>Add New Project</h2>
+            </div>
+            <div style="text-align:right" class="col-3">
+                <label style="margin-right:20px">Activity</label>
+                @Html.CheckBoxFor(m => m.IsActive, new { @class = "js-switch" })
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="ibox-content">
+        <div class="modal-body">
+            <div class=" row">
+                <div class="form-group col-6 ">
+                    <label class=" col-form-label">Project Name Tr</label>
+                    @Html.TextBoxFor(m => m.ProjectNameTr, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group col-6">
+                    <label class="col-form-label">Project Name En</label>
+                    @Html.TextBoxFor(m => m.ProjectNameEn, new { @class = "form-control m-b" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-4 ">
+                    <div class="form-group" id="data_1">
+                        <label class="font-normal">End Date</label>
+                        <div class="input-group date">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="text" class="form-control" name="Start Date" value=@Model.StartDate.ToString("dd/MM/yyyy")>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 ">
+                    <div class="form-group" id="data_1">
+                        <label class="font-normal">End Date</label>
+                        <div class="input-group date">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="text" class="form-control" name="EndDate" value=@Model.EndDate.ToString("dd/MM/yyyy")>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-4 ">
+                    <label class="font-normal">Sort</label>
+                    @Html.TextBoxFor(x => x.Sort, new { @class = "form-control", @type = "number" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6 ">
+                    <label class="font-normal">Content Short Tr</label>
+                    @Html.TextAreaFor(m => m.ContentShortTr, 5, 50, new { @class = "form-control" })
+                </div>
+                <div class="col-6 ">
+                    <div class="form-group" id="data_1">
+                        <label class="font-normal">Content Short En</label>
+                        @Html.TextAreaFor(m => m.ContentShortEn, 5, 50, new { @class = "form-control" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="font-normal">Content Tr</label>
+                @Html.TextAreaFor(m => m.ContentTr, new { @class = "summernote" })
+            </div>
+            <div class="form-group">
+                <label class="font-normal">Content En</label>
+                @Html.TextAreaFor(m => m.ContentEn, new { @class = "summernote2" })
+            </div>
+            <div class="form-group">
+                <label class="font-normal">Technologies</label>
+                <input class="tagsinput form-control" name="Technologies" type="text" value=@Model.Technologies />
+            </div>
+            <div class="form-group">
+                <label class="font-normal">Image</label>
+                <input class="form-control" type="file" name="ImageFile" />
+            </div>
+            @if (!string.IsNullOrEmpty(Model.Image))
+            {
+                <img width="100" height="100" class="img-thumbnail" src="@Model.Image" alt="Alternate Text" />
+            }
+            <div style="text-align:center">
+                <button type="submit" class="btn btn-success" style="width:120px">Save</button>
+            </div>
+        </div>
+        @ViewData["Message"]
+    </div>
+}
+<script src="~/Admin/js/jquery-3.1.1.min.js"></script>
+<script src="~/Admin/js/plugins/switchery/switchery.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('.summernote').summernote(
+            {
+                height: 250
+            });
+        $('.summernote2').summernote(
+            {
+                height: 250
+            });
+        $('.tagsinput').tagsinput({
+            tagClass: 'label label-primary'
+        });
+        var elem = document.querySelector('.js-switch');
+        var switchery = new Switchery(elem, { color: '#1AB394' });
+        var mem = $('#data_1 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+    })
+    $(document).keypress(function (e) {
+        if (e.which == 13) {
+            return false;
+        }
+    });
+</script>
+

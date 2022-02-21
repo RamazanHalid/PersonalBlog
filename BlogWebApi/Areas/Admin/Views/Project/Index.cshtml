@@ -1,0 +1,66 @@
+﻿@model List<Entities.DTOs.ProjectWithImage>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<div class="ibox-content">
+    <div class="row">
+
+        <div class="col-6">
+            <h2>Projects</h2>
+        </div>
+        <div class="col-6" style="text-align:right">
+            <a href="~/Admin/Project/AddAndUpdate/0" class="btn btn-outline btn-primary"><i class="fa fa-solid fa-plus"></i> Add New Project</a>
+        </div>
+    </div>
+</div>
+<br />
+<div class="ibox-content">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Project Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Activity</th>
+                <th>View Count</th>
+                <th>Sort</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td></td>
+                    <td>@item.ProjectNameEn</td>
+                    <td width="120">@item.StartDate.ToString("dd/MM/yyyy")</td>
+                    <td width="120">@item.EndDate.ToString("dd/MM/yyyy")</td>
+                    <td width="50">
+                        @if (@item.IsActive)
+                        {
+                            <button class="btn btn-primary btn-circle" type="button">
+                                <i class="fa fa-check"></i>
+                            </button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-danger btn-circle " type="button">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        }
+                    </td>
+                    <td width="100"><p class="btn btn-success m-r-sm">@item.ViewCount</p></td>
+                    <td width="50"><p class="btn btn-primary m-r-sm">@item.Sort</p></td>
+                    <td width="100"><a href="~/Admin/Project/AddAndUpdate/@item.ProjectId" class="btn btn-outline btn-success">Update</a></td>
+                    <td width="100"><a href="~/Admin/Project/Delete/@item.ProjectId" class="btn btn-outline btn-danger">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

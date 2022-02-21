@@ -19,7 +19,7 @@ namespace Business.Concrete
             _blogCategoryDal = blogCategoryDal;
         }
 
-        [SecuredOperation("yetki")]
+ 
         public IDataResult<List<BlogCategory>> GetAll()
         {
             return new SuccessDataResult<List<BlogCategory>>(_blogCategoryDal.GetAll(), Messages.GetAllSuccessfuly);

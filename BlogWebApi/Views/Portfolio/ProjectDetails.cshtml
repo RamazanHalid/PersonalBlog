@@ -1,0 +1,160 @@
+﻿@model Entities.DTOs.ProjectWithImage
+@{
+    ViewData["Title"] = "ProjectDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ajax-page-title">
+    <h1>@Model.ProjectNameEn</h1>
+</div>
+<div class="row">
+    <div class="col-sm-8 col-md-8 portfolio-block">
+        <div class="item">
+            <img src="@Model.Image" alt="">
+        </div>
+    </div>
+
+    <div class="col-sm-4 col-md-4 portfolio-block">
+        <!-- Project Description -->
+        <div class="project-description">
+            <div class="block-title">
+                <h3>Description</h3>
+            </div>
+            <ul class="project-general-info">
+                <li><p><i class="fa fa-user"></i> Ramazan Halid</p></li>
+                <li><p><i class="fa fa-globe"></i> <a href="#" target="_blank">www.Deneme.com</a></p></li>
+                <li>
+                    <p>
+                        <i class="fa fa-calendar"></i> @Model.StartDate.ToString("dd/MM/yyyy") -
+                        @if (Model.StartDate > Model.EndDate)
+                        {
+                            var a = "Current";
+                            @a
+                        }
+                        else
+                        {
+                            @Model.EndDate.ToString("dd/MM/yyyy")
+                        }
+
+                    </p>
+                </li>
+            </ul>
+
+            <p class="text-justify">@Model.ContentShortEn</p>
+            <!-- /Project Description -->
+            <!-- Technology -->
+            <div class="tags-block">
+                <div class="block-title">
+                    <h3>Technology</h3>
+                </div>
+                <ul class="tags">
+                    @foreach (var item in Model.Technologies.Split(","))
+                    {
+
+                        <li><a>@item</a></li>
+                    }
+
+                </ul>
+            </div>
+            <!-- /Technology -->
+            <!-- Share Buttons -->
+            <div class="btn-group share-buttons">
+                <div class="block-title">
+                    <h3>Share</h3>
+                </div>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=" onclick="deneme(this.href)" class="btn" target="_blank" title="Share on Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="#" onclick="deneme(this.href)" class="btn" target="_blank" title="Share on Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=" onclick="deneme(this.href)" class="btn" title="Share on LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+            <!-- /Share Buttons -->
+        </div>
+        <!-- Project Description -->
+    </div>
+</div>
+<div id="main" class="site-main">
+    <div id="main-content" class="single-page-content">
+        <div id="primary" class="content-area">
+            <div id="content" class="page-content site-content" role="main">
+                <article class="post">
+                    <header class="entry-header">
+
+                        <h2 class="entry-title">@Model.ProjectNameEn</h2>
+                    </header><!-- .entry-header -->
+
+                    <div class="post-content">
+                        <div class="entry-content">
+
+                            <div class="row">
+                                <div class=" col-xs-12 col-sm-12 ">
+
+                                    @Html.Raw(Model.ContentEn)
+                                </div>
+                            </div>
+                        </div><!-- .entry-content -->
+                        <div class="entry-meta entry-meta-bottom">
+                            <div class="date-author">
+
+                                <span class="entry-date">
+                                    <a href="#" rel="bookmark">
+                                        <i class="far fa-clock"></i>
+                                        <time class="entry-date">
+                                            @Model.StartDate.ToString("dd/MM/yyyy") -
+                                            @if (Model.StartDate > Model.EndDate)
+                                            {
+                                                var b = "Current";
+                                                @b
+                                            }
+                                            else
+                                            {
+                                                @Model.EndDate.ToString("dd/MM/yyyy")
+                                            }
+
+                                        </time>
+                                    </a>
+                                </span>
+                            </div>
+                            <!-- Share Buttons -->
+                            <div class="entry-share btn-group share-buttons">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=" onclick="deneme(this.href)" class="btn" target="_blank" title="Share on Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+
+                                <a href="#" onclick="deneme(this.href)" class="btn" target="_blank" title="Share on Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=" onclick="deneme(this.href)" class="btn" title="Share on LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                            <!-- /Share Buttons -->
+                        </div>
+                        <div class="post-tags">
+                            <span class="tags">
+                                @foreach (var item in Model.Technologies.Split(','))
+                                {
+
+                                    <a href="#" rel="tag">@item</a>
+                                }
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function deneme(u) {
+        window.open(u + window.location.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+        return false;
+    }
+</script>

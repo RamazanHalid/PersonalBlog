@@ -1,48 +1,129 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿
+<!DOCTYPE html>
+<html lang="en" class="no-js">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BlogWebApi</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Leven - Resume / CV / vCard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Leven - Resume / CV / vCard Template" />
+    <meta name="keywords" content="vcard, resposnive, retina, resume, jquery, css3, bootstrap, portfolio" />
+    <meta name="author" content="lmpixels" />
+    <link rel="shortcut icon" href="favicon.ico">
+
+
+    <link rel="stylesheet" href="~/User/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="~/User/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/User/css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="~/User/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="~/User/css/main.css" type="text/css">
+
+    <script src="~/User/js/modernizr.custom.js"></script>
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BlogWebApi</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
+<body class="page">
+
+    <div class="lm-animated-bg"></div>
+
+    <!-- Loading animation -->
+    <div class="preloader">
+        <div class="preloader-animation">
+            <div class="preloader-spinner">
+            </div>
+        </div>
+    </div>
+    <!-- /Loading animation -->
+    <!-- Scroll To Top Button -->
+    <div class="lmpixels-scroll-to-top"><i class="lnr lnr-chevron-up"></i></div>
+    <!-- /Scroll To Top Button -->
+
+    <div class="page-scroll">
+        <div id="page_container" class="page-container bg-move-effect" data-animation="transition-flip-in-right">
+
+            <!-- Header -->
+            <header id="site_header" class="header">
+                <div class="header-content clearfix">
+
+                    <!-- Text Logo -->
+                    <div class="text-logo">
+                        <a href="index.html">
+                            <div class="logo-symbol">R</div>
+                            <div class="logo-text">Ramazan <span>Halid</span></div>
+                        </a>
+                    </div>
+                    <!-- /Text Logo -->
+                    <!-- Navigation -->
+                    <div class="site-nav mobile-menu-hide">
+                        <ul class="leven-classic-menu site-main-menu">
+                          
+                            <li class="menu-item">
+                                <a href="~/Home/Index">About Me</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="~/Resume/Index">Resume</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="~/Portfolio/Index">Portfolio</a>
+                            </li>
+
+                            <li class="menu-item">
+                                <a href="~/Blog/Index">Blog</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="~/Contact/Index">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Mobile Menu Toggle -->
+                    <a class="menu-toggle mobile-visible">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <!-- Mobile Menu Toggle -->
+                </div>
+            </header>
+            <!-- /Header -->
+            @RenderBody()
+
+            <!-- Footer -->
+            <footer class="site-footer clearfix">
+                <div class="footer-social">
+                    <ul class="footer-social-links">
+                        <li>
+                            <a href="#" target="_blank">Twitter</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+                        <li>
+                            <a href="#" target="_blank">Facebook</a>
+                        </li>
+
+                        <li>
+                            <a href="#" target="_blank">Instagram</a>
                         </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+                <div class="footer-copyrights">
+                    <p>© 2020 All rights reserved. LMPixels.</p>
+                </div>
+            </footer>
+            <!-- /Footer -->
+
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - BlogWebApi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+    <script src="~/User/js/jquery-2.1.3.min.js"></script>
+    <script src="~/User/js/imagesloaded.pkgd.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="~/User/js/bootstrap.min.js"></script>
+    <script src='~/User/js/jquery.shuffle.min.js'></script>
+    <script src='~/User/js/masonry.pkgd.min.js'></script>
+    <script src='~/User/js/owl.carousel.min.js'></script>
+    <script src="~/User/js/jquery.magnific-popup.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrDf32aQTCVENBhFJbMBKOUTiUAABtC2o"></script>
+    <script src="~/User/js/jquery.googlemap.js"></script>
+    <script src="~/User/js/validator.js"></script>
+    <script src="~/User/js/main.js"></script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"6daff8cc58dc92d1","version":"2021.12.0","r":1,"token":"94b99c0576dc45bf9d669fb5e9256829","si":100}' crossorigin="anonymous"></script>
 </body>
 </html>

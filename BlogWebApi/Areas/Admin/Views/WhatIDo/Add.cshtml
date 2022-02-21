@@ -1,0 +1,112 @@
+﻿@model Entities.DTOs.WhatIDoDto
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Add", "WhatIDo", FormMethod.Post, new { @class = "m-t", area = "Admin", enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.WhatIdoId)
+    @Html.HiddenFor(m => m.Image)
+    <div class="ibox-content ">
+        <div class="row">
+            <div class="col-9">
+                <h2>Add New Blog</h2>
+            </div>
+            <div style="text-align:right" class="col-3">
+                <label style="margin-right:20px">Activity</label>
+                @Html.CheckBoxFor(m => m.IsActive, new { @class = "js-switch" })
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="ibox-content">
+        <div class="modal-body">
+            <div class=" row">
+                <div class="form-group col-6 ">
+                    <label class=" col-form-label">Header Tr</label>
+                    @Html.TextBoxFor(m => m.HeaderTr, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group col-6">
+                    <label class="col-form-label">Header En</label>
+                    @Html.TextBoxFor(m => m.HeaderEn, new { @class = "form-control m-b" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6 ">
+                    <label class="font-normal">Summary Tr</label>
+                    @Html.TextAreaFor(m => m.ContentSummaryTr, 5, 50, new { @class = "form-control" })
+                </div>
+                <div class="col-6 ">
+                    <div class="form-group" id="data_1">
+                        <label class="font-normal">Summary En</label>
+                        @Html.TextAreaFor(m => m.ContentSummaryEn, 5, 50, new { @class = "form-control" })
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="font-normal">Explanation Tr</label>
+                @Html.TextAreaFor(m => m.ContentTr, new { @class = "summernote" })
+            </div>
+            <div class="form-group">
+                <label class="font-normal">Explanation En</label>
+                @Html.TextAreaFor(m => m.ContentEn, new { @class = "summernote2" })
+            </div>
+
+            <div class="form-group  ">
+                <label class="font-normal">Sort</label>
+                @Html.TextBoxFor(x => x.Sort, new { @class = "form-control", @type = "number" })
+            </div>
+
+            <div class="form-group">
+                <label class="font-normal">Image</label>
+                <input class="form-control" type="file" name="ImageFile" />
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.Image))
+            {
+                <img width="100" height="100" class="img-thumbnail" src="@Model.Image" alt="Alternate Text" />
+            }
+            <div style="text-align:center">
+                <button type="submit" class="btn btn-success" style="width:120px">Save</button>
+            </div>
+        </div>
+        @ViewData["Message"]
+    </div>
+}
+<script src="~/Admin/js/jquery-3.1.1.min.js"></script>
+<script src="~/Admin/js/plugins/switchery/switchery.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('.summernote').summernote(
+            {
+                height: 250
+            });
+        $('.summernote2').summernote(
+            {
+                height: 250
+            });
+        $('.tagsinput').tagsinput({
+            tagClass: 'label label-primary'
+        });
+        var elem = document.querySelector('.js-switch');
+        var switchery = new Switchery(elem, { color: '#1AB394' });
+        var mem = $('#data_1 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+    })
+    $(document).keypress(function (e) {
+        if (e.which == 13) {
+            return false;
+        }
+    });
+</script>

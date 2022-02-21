@@ -36,6 +36,17 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EducationManager>().As<IEducationService>();
             builder.RegisterType<EfEducationDal>().As<IEducationDal>();
 
+            builder.RegisterType<ExperienceManager>().As<IExperienceService>();
+            builder.RegisterType<EfExperienceDal>().As<IExperienceDal>();
+
+            builder.RegisterType<ProjectManager>().As<IProjectService>();
+            builder.RegisterType<EfProjectDal>().As<IProjectDal>();
+
+
+            builder.RegisterType<ContactManager>().As<IContactService>();
+            builder.RegisterType<EfContactDal>().As<IContactDal>();
+
+
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 

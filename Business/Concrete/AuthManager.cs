@@ -27,9 +27,15 @@ namespace Business.Concrete
                 LastName = userForRegisterDto.LastName,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
+                Title = userForRegisterDto.Title,
+                CellPhone = userForRegisterDto.CellPhone,
                 Status = true,
-                AboutMe = "",
-                CityId = 1
+                AboutMeTr = "",
+                AboutMeEn = "",
+                CityId = 1,
+                ProfileImage = "",
+                Cv = "",
+
             };
             _userService.Add(user);
             return new SuccessDataResult<User>(user, "Kayıt oldu");

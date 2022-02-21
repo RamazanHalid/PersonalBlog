@@ -28,6 +28,7 @@ namespace BlogWebApi
               })
               .ConfigureWebHostDefaults(webBuilder =>
               {
+                  webBuilder.UseUrls("http://*:2000");
                   webBuilder.UseStartup<Startup>();
               });
     }

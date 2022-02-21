@@ -1,4 +1,12 @@
 ﻿@model Core.Entities.Concrete.User
+@if (!string.IsNullOrEmpty(Model.ProfileImage))
+{
+    <img alt="image" class="rounded-circle" width="100" src="@Model.ProfileImage" />
+}
+else
+{
+    <img alt="image" class="rounded-circle" width="100" src="~/ProfileImages/NoImage.png" />
+}
 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
     <span class="block m-t-xs font-bold">@Model.FirstName  @Model.LastName</span>
     <span class="text-muted text-xs block">@Model.Title <b class="caret"></b></span>

@@ -1,0 +1,45 @@
+﻿@model List<Entities.DTOs.ProjectWithImage>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="main" class="site-main">
+    <div id="main-content" class="single-page-content">
+        <div id="primary" class="content-area">
+
+            <div class="page-title">
+                <h1>Portfolio</h1>
+                <div class="page-subtitle">
+                    <h4> My Works</h4>
+                </div>
+            </div>
+            <div id="content" class="page-content site-content single-post" role="main">
+                <div class="row">
+                    <div class=" col-xs-12 col-sm-12 ">
+                        <!-- Portfolio Content -->
+                        <div id="portfolio_content_q" class="portfolio-content">
+                            <div class="portfolio-grid three-columns shuffle">
+                                @foreach (var item in Model)
+                                {
+                                    <!-- Portfolio Item -->
+                                    <figure class="item standard">
+                                        <div class="portfolio-item-img">
+                                            <img src="@item.Image" alt="Full Project 2" title="" />
+                                            <a href="ProjectDetails/@item.ProjectId"></a>
+                                        </div>
+                                        <i class="far fa-file-alt"></i>
+                                        <h4 class="name">@item.ProjectNameEn</h4>
+                                        <span class="category">@item.Technologies.ToString()</span>
+                                    </figure>
+                                    <!-- /Portfolio Item -->
+                                }
+                            </div>
+                            <!-- /Portfolio Content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

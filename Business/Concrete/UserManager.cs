@@ -54,5 +54,12 @@ namespace Business.Concrete
             _userDal.Update(user);
             return new SuccessResult(Messages.UpdatedSuccessfuly);
         }
+
+        public IDataResult<UserInfoForHeaderPage> GetAllUsers()
+        {
+            var users = _userDal.GetAll();
+            List<UserInfoForHeaderPage> userInfoForHeaderPages = _mapper.Map<List<UserInfoForHeaderPage>>(users);
+            return new SuccessDataResult<UserInfoForHeaderPage>(userInfoForHeaderPages[0], Messages.GetAllSuccessfuly);
+        }
     }
 }

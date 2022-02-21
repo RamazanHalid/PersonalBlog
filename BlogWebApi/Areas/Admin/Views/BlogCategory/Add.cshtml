@@ -14,6 +14,7 @@
 <div class="ibox-content">
     @using (Html.BeginForm("Add", "BlogCategory", FormMethod.Post, new { @class = "m-t", area = "Admin" }))
     {
+        @Html.HiddenFor(m => m.BlogCategoryId)
         <div class="modal-body">
             <div class="form-group ">
                 <label class=" col-form-label">Blog Category Name Tr</label>

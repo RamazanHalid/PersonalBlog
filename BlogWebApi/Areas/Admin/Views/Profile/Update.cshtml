@@ -1,0 +1,127 @@
+﻿@model Entities.DTOs.UpdateProfileDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+@using (Html.BeginForm("Update", "Profile", FormMethod.Post, new { @class = "m-t", area = "Admin", enctype = "multipart/form-data" }))
+{
+    <div class="ibox-content ">
+        <div class="row">
+            <div class="col-9">
+                <h2>Update Profile</h2>
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <div class="ibox-content">
+        <div class="modal-body">
+            <div style="text-align:center; margin-bottom:20px" class="row">
+                <div class="col-12">
+                    @if (!string.IsNullOrEmpty(Model.ProfileImage))
+                    {
+                        <img style="border-radius:35px" width="150" height="150" class="img-thumbnail" src="@Model.ProfileImage" alt="Alternate Text" />
+                    }
+                    else
+                    {
+                        <img style="border-radius:35px" width="150" height="150" class="img-thumbnail" src="~/ProfileImages/NoImage.png" alt="Alternate Text" />
+                    }
+
+                    @Html.HiddenFor(m => m.ProfileImage)
+                </div>
+            </div>
+            <div class=" row">
+                <div class="form-group col-4 ">
+                    <label class=" col-form-label">Title</label>
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group col-4 ">
+                    <label class=" col-form-label">First Name</label>
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group col-4">
+                    <label class="col-form-label">Last Name</label>
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control m-b" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6 ">
+                    <label class="col-form-labell">Email</label>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control m-b" })
+
+                </div>
+                <div class="col-6 ">
+                    <label class="col-form-labell">Cell Phone</label>
+                    @Html.TextBoxFor(m => m.CellPhone, new { @class = "form-control m-b" })
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="font-normal">About Me Tr</label>
+                @Html.TextAreaFor(m => m.AboutMeTr, new { @class = "summernote" })
+            </div>
+            <div class="form-group">
+                <label class="font-normal">About Me En</label>
+                @Html.TextAreaFor(m => m.AboutMeEn, new { @class = "summernote2" })
+            </div>
+
+            <div class="form-group">
+                <label class="font-normal">Cv</label>
+                <input class="form-control" type="file" name="CvFile" />
+            </div>
+            <div class="row">
+                <div class="col-9">
+                    @Html.TextBoxFor(m => m.Cv, new { @class = "form-control m-b" })
+                </div>
+                <div class="col-3">
+                    <a class="btn btn-primary" target="_blank" href="@Model.Cv" style="width:120px;color:white">Download</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="font-normal">Profile Image</label>
+                <input class="form-control" type="file" name="ProfileImageFile" />
+            </div>
+            <div style="text-align:center">
+                <button type="submit" class="btn btn-success" style="width:120px">Save</button>
+            </div>
+        </div>
+        @ViewData["Message"]
+    </div>
+}
+<script src="~/Admin/js/jquery-3.1.1.min.js"></script>
+<script src="~/Admin/js/plugins/switchery/switchery.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('.summernote').summernote(
+            {
+                height: 250
+            });
+        $('.summernote2').summernote(
+            {
+                height: 250
+            });
+        $('.tagsinput').tagsinput({
+            tagClass: 'label label-primary'
+        });
+        var elem = document.querySelector('.js-switch');
+        var switchery = new Switchery(elem, { color: '#1AB394' });
+        var mem = $('#data_1 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+    })
+    $(document).keypress(function (e) {
+        if (e.which == 13) {
+            return false;
+        }
+    });
+</script>

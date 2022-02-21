@@ -1,8 +1,29 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div id="main" class="site-main">
+    <div id="main-content" class="single-page-content">
+        <div id="primary" class="content-area">
+            <div id="content" class="page-content site-content single-post" role="main">
+                <!-- Home Page Top Part -->
+                <div class="row">
+                    <div class=" col-xs-12 col-sm-12">
+                        @await Component.InvokeAsync("HomePageHeaderPart")
+                    </div>
+                </div>
+                <!-- Home Page Top Part -->
+                <!-- Services -->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="p-50"></div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+                        <div class="block-title">
+                            <h2>What I Do</h2>
+                        </div>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("WhatIDoPart")
+            </div>
+        </div>
+    </div>
 </div>

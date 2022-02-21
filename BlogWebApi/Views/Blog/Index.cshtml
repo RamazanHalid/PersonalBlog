@@ -3,6 +3,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div id="main" class="site-main">
     <div id="main-content" class="single-page-content">
         <div id="primary" class="content-area">
@@ -21,14 +22,14 @@
                             @foreach (var item in Model)
                             {
                                 <!-- Blog Post -->
-                                <div class="item">
-                                    <div class="blog-card">
+                                <div class="item" >
+                                    <div class="blog-card"  >
                                         <div class="media-block">
                                             <div class="category">
                                                 <a href="#" title="View all posts in WordPress">@item.BlogCategory.CategoryNameEn</a>
                                             </div>
                                             <a href="BlogDetails/@item.BlogId">
-                                                <img style="width:47% ;height:auto; " src="@item.Image" alt="@item.HeaderEn" title="" />
+                                                <img  src="@item.Image" alt="@item.HeaderEn" title="" />
                                                 <div class="mask"></div>
                                             </a>
                                         </div>

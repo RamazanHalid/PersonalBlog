@@ -1,0 +1,62 @@
+﻿@model List<Entities.Concrete.Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<div class="ibox-content ">
+    <div class="row">
+
+        <div class="col-6">
+            <h2>Experiences</h2>
+        </div>
+        <div class="col-6" style="text-align:right">
+            <a href="~/Admin/Experience/AddAndUpdate/0" class="btn btn-outline btn-primary"><i class="fa fa-solid fa-plus"></i> Add New Experience</a>
+        </div>
+    </div>
+</div>
+<br />
+<div class="ibox-content">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Role</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Activity</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CompanyNameEn</td>
+                    <td>@item.RoleEn</td>
+                    <td>@item.StartDate.ToString("dd/MM/yyyy")</td>
+                    <td>@item.EndDate.ToString("dd/MM/yyyy")</td>
+                    <td width="50">
+                        @if (@item.IsActive)
+                        {
+                            <button class="btn btn-primary btn-circle" type="button">
+                                <i class="fa fa-check"></i>
+                            </button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-danger btn-circle " type="button">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        }
+                    </td>
+                    <td width="100"><a href="~/Admin/Experience/AddAndUpdate/@item.ExperienceId" class="btn btn-outline btn-success">Update</a></td>
+                    <td width="100"><a href="~/Admin/Experience/Delete/@item.ExperienceId" class="btn btn-outline btn-danger">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

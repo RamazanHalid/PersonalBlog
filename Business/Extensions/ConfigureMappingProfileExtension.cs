@@ -26,6 +26,10 @@ namespace Business.Extensions
                    .ReverseMap();
                 CreateMap<WhatIDo, WhatIDoDto>()
                    .ReverseMap();
+                CreateMap<Project, ProjectWithImage>()
+                 .ReverseMap();
+                CreateMap<User, UserInfoForHeaderPage>()
+                .ReverseMap();
 
 
             }

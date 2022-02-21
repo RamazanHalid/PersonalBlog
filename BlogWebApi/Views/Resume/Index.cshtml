@@ -1,0 +1,74 @@
+﻿@model BlogMVC.Models.ResumeModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="main" class="site-main">
+    <div id="main-content" class="single-page-content">
+        <div id="primary" class="content-area">
+            <div class="page-title">
+                <h1>Resume</h1>
+            </div>
+            <div id="content" class="page-content site-content single-post" role="main">
+                <div class="row">
+                    <div class=" col-xs-12 col-sm-6 ">
+                        <div class="block-title">
+                            <h2>Education</h2>
+                        </div>
+                        <div id="timeline_1" class="timeline clearfix">
+                            @foreach (var item in Model.Educations)
+                            {
+                                <div class="timeline-item clearfix">
+                                    <h5 class="item-period ">
+                                        @item.StartDate.Year
+                                        -
+                                        @{string a = "Current";}
+                                        @if (@item.StartDate.Year < @item.EndDate.Year)
+                                        {
+                                            @item.EndDate.Year
+                                        }
+                                        else
+                                        {
+                                            @a
+                                        }
+                                    </h5>
+                                    <span class="item-company">@item.SchoolTypeEn</span>
+                                    <h4 class="item-title">@item.HeaderEn</h4>
+                                    <p>@item.ContentEn</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class=" col-xs-12 col-sm-6 ">
+                        <div class="block-title">
+                            <h2>Experiences</h2>
+                        </div>
+                        <div id="timeline_2" class="timeline clearfix">
+                            @foreach (var item in Model.Experiences)
+                            {
+                                <div class="timeline-item clearfix">
+                                    <h5 class="item-period ">
+                                        @item.StartDate.Year
+                                        -
+                                        @{string a = "Current";}
+                                        @if (@item.StartDate.Year < @item.EndDate.Year)
+                                        {
+                                            @item.EndDate.Year
+                                        }
+                                        else
+                                        {
+                                            @a
+                                        }
+                                    </h5>
+                                    <span class="item-company">@item.CompanyNameEn</span>
+                                    <h4 class="item-title">@item.RoleEn</h4>1
+                                    <p>@item.DescriptionEn</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

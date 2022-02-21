@@ -9,7 +9,7 @@
         <h2>Blog Categories</h2>
     </div>
     <div class="col-6" style="text-align:right">
-        <a href="~/Admin/BlogCategory/Add" class="btn btn-outline btn-primary"><i class="fa fa-solid fa-plus"></i> Add New Blog Category</a>
+        <a href="~/Admin/BlogCategory/Add/0" class="btn btn-outline btn-primary"><i class="fa fa-solid fa-plus"></i> Add New Blog Category</a>
     </div>
 </div>
 <br />
@@ -21,6 +21,7 @@
                 <th></th>
                 <th>Category Name Tr</th>
                 <th>Category Name En</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -30,9 +31,10 @@
                     <td></td>
                     <td>@item.CategoryNameTr</td>
                     <td>@item.CategoryNameEn</td>
+                    <td width="100"><a href="~/Admin/BlogCategory/Add/@item.BlogCategoryId" class="btn btn-outline btn-success">Update</a></td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
-
+ 
