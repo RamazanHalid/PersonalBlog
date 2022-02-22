@@ -1,16 +1,24 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
+FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS base
 WORKDIR /app
 
-COPY *.csproj .
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+WORKDIR /src
+COPY ["BlogMVC/BlogMVC.csproj", "BlogMVC/"]
+COPY ["Business/Business.csproj", "Business/"]
+COPY ["DataAccess/DataAccess.csproj", "DataAccess/"]
+COPY ["Core/Core.csproj", "Core/"]
+COPY ["Entities/Entities.csproj", "Entities/"]
+RUN dotnet restore "BlogMVC/BlogMVC.csproj"
+COPY . .
+WORKDIR "/src/BlogMVC"
+RUN dotnet build "BlogMVC.csproj" -c Release -o /app/build
 
-RUN dotnet restore 
+FROM build AS publish
+RUN dotnet publish "BlogMVC.csproj" -c Release -o /app/publish
 
-COPY . ./
-
-RUN dotnet publish --no-restore -c Release -o out
-
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+FROM base AS final
 WORKDIR /app
-COPY --from=build-env /app/out .
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "BlogMVC.dll"]
