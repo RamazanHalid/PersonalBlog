@@ -10,15 +10,13 @@ COPY ["Business/Business.csproj", "Business/"]
 COPY ["DataAccess/DataAccess.csproj", "DataAccess/"]
 COPY ["Core/Core.csproj", "Core/"]
 COPY ["Entities/Entities.csproj", "Entities/"]
-RUN dotnet restore "BlogMVC/BlogMVC.csproj"
-COPY . .
-WORKDIR "/src/BlogMVC"
-RUN dotnet build "BlogMVC.csproj" -c Release -o /app/build
+RUN dotnet restore
+COPY . ./ 
+ 
+ 
+RUN dotnet publish --no-restore -c Release -o out
 
-FROM build AS publish
-RUN dotnet publish "BlogMVC.csproj" -c Release -o /app/publish
-
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "BlogMVC.dll"]
