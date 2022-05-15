@@ -1,10 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DataAccess.Migrations
 {
-    public partial class migration111 : Migration
+    public partial class mig2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +12,7 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     BlogCategoryId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryNameTr = table.Column<string>(nullable: true),
                     CategoryNameEn = table.Column<string>(nullable: true)
                 },
@@ -27,7 +26,7 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     ContactId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Fullname = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     CellPhone = table.Column<string>(nullable: true),
@@ -43,7 +42,7 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     EducationId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     SchoolTypeTr = table.Column<string>(nullable: true),
                     SchoolTypeEn = table.Column<string>(nullable: true),
                     HeaderTr = table.Column<string>(nullable: true),
@@ -64,7 +63,7 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     ExperienceId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CompanyNameTr = table.Column<string>(nullable: true),
                     CompanyNameEn = table.Column<string>(nullable: true),
                     RoleTr = table.Column<string>(nullable: true),
@@ -85,7 +84,7 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -98,7 +97,7 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     ProjectId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ProjectNameTr = table.Column<string>(nullable: true),
                     ProjectNameEn = table.Column<string>(nullable: true),
                     ContentShortTr = table.Column<string>(nullable: true),
@@ -123,7 +122,7 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(nullable: false),
                     OperationClaimId = table.Column<int>(nullable: false)
                 },
@@ -137,7 +136,7 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
@@ -162,7 +161,7 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     WhatIdoId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderTr = table.Column<string>(nullable: true),
                     HeaderEn = table.Column<string>(nullable: true),
                     Sort = table.Column<int>(nullable: false),
@@ -183,7 +182,7 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     BlogId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     HeaderTr = table.Column<string>(nullable: true),
                     HeaderEn = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),

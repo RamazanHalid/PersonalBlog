@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  blogmvc:
+    image: ${DOCKER_REGISTRY-}blogmvc
+    build:
+      context: .
+      dockerfile: BlogMVC/Dockerfile
