@@ -25,11 +25,7 @@ namespace BlogWebApi.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            return View(new UserForLoginDto
-            {
-                Email = "ramazan.halid.35@gmail.com",
-                Password = "123123123123"
-            });
+            return View();
         }
         [HttpPost]
         public IActionResult Login(UserForLoginDto userForLoginDto)
