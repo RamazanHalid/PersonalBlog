@@ -24,25 +24,21 @@
     <div class="ibox-content">
         <div class="modal-body">
             <div class=" row">
-                <div class="form-group col-6 ">
-                    <label class=" col-form-label">Company Name Tr</label>
-                    @Html.TextBoxFor(m => m.CompanyNameTr, new { @class = "form-control" })
+                <div class="form-group">
+                   
 
-                </div>
-                <div class="form-group col-6">
-                    <label class="col-form-label">Company Name En</label>
-                    @Html.TextBoxFor(m => m.CompanyNameEn, new { @class = "form-control m-b" })
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-6 ">
-                    <label class="font-normal">Role Tr</label>
-                    @Html.TextBoxFor(m => m.RoleTr, new { @class = "form-control m-b" })
+                    <label class=" col-form-label">Company Name</label>
+                    @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
                 </div>
                 <div class="form-group col-6 ">
-                    <label class="font-normal">Role En</label>
-                    @Html.TextBoxFor(m => m.RoleEn, new { @class = "form-control m-b" })
+                    <label class="font-normal">Role</label>
+                    @Html.TextBoxFor(m => m.Role, new { @class = "form-control m-b" })
                 </div>
+
             </div>
             <div class="row">
                 <div class="col-6">
@@ -65,17 +61,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-6 ">
-                    <label class="font-normal">Description Tr</label>
-                    @Html.TextAreaFor(m => m.DescriptionTr, 5, 50, new { @class = "form-control" })
-                </div>
-                <div class="col-6 ">
-                    <div class="form-group" id="data_1">
-                        <label class="font-normal">Description En</label>
-                        @Html.TextAreaFor(m => m.DescriptionEn, 5, 50, new { @class = "form-control" })
-
-                    </div>
-                </div>
+                <div class="form-group">
+                    <label class="font-normal">Description</label>
+                    @Html.TextAreaFor(m => m.Description, 5, 250, new { @class = "form-control" })
+                </div> 
             </div>
             <div style="text-align:center">
                 <button type="submit" class="btn btn-success" style="width:120px">Save</button>

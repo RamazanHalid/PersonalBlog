@@ -9,7 +9,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=20.113.66.240;Initial Catalog=personalblog;Persist Security Info=True;User ID=sa;Password=Halid35!");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=gPersonalBlog;Trusted_Connection=true");
             //optionsBuilder.UseNpgsql(@"Server=localhostw;Database=RamazanBlogw;Trusted_Connection=true");
         }
 

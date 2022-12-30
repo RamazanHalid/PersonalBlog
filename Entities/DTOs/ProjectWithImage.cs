@@ -9,12 +9,9 @@ namespace Entities.DTOs
     public class ProjectWithImage : IDto
     {
         public int ProjectId { get; set; }
-        public string ProjectNameTr { get; set; }
-        public string ProjectNameEn { get; set; }
-        public string ContentShortTr { get; set; }
-        public string ContentShortEn { get; set; }
-        public string ContentTr { get; set; }
-        public string ContentEn { get; set; }
+        public string Name { get; set; }
+        public string Summary { get; set; }
+        public string Content { get; set; }
         public string Image { get; set; }
         public IFormFile ImageFile { get; set; }
         public DateTime StartDate { get; set; } = DateTime.Now;

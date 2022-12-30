@@ -10,9 +10,9 @@
                 <article class="post">
                     <header class="entry-header">
                         <div class="entry-meta entry-meta-top">
-                            <span><a href="#" rel="category tag">@Model.BlogCategory.CategoryNameEn</a></span>
+                            <span><a href="#" rel="category tag">@Model.BlogCategory.Title</a></span>
                         </div><!-- .entry-meta -->
-                        <h2 class="entry-title">@Model.HeaderEn</h2>
+                        <h2 class="entry-title">@Model.Title</h2>
                     </header><!-- .entry-header -->
                     <div class="post-thumbnail">
                         <img src="@Model.Image" alt="" />
@@ -23,7 +23,7 @@
                             <div class="row">
                                 <div class=" col-xs-12 col-sm-12 ">
 
-                                    @Html.Raw(Model.TextEn)
+                                    @Html.Raw(Model.Content)
                                 </div>
                             </div>
                         </div><!-- .entry-content -->

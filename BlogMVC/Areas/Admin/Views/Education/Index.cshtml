@@ -22,7 +22,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Header</th>
+                <th>Title</th>
                 <th>School Type </th>
                 <th>Start Date</th>
                 <th>End Date</th>
@@ -35,8 +35,8 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.HeaderEn</td>
-                    <td>@item.SchoolTypeEn</td>
+                    <td>@item.Title</td>
+                    <td>@item.SchoolType</td>
                     <td>@item.StartDate.ToString("dd/MM/yyyy")</td>
                     <td>@item.EndDate.ToString("dd/MM/yyyy")</td>
                     <td width="50">

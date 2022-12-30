@@ -8,8 +8,7 @@ namespace Entities.Concrete
     public class BlogCategory : IEntity
     {
         public int BlogCategoryId { get; set; }
-        public string CategoryNameTr { get; set; }
-        public string CategoryNameEn { get; set; }
+        public string Title { get; set; }
         public virtual ICollection<Blog> Blogs { get; set; }
     }
 }

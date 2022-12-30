@@ -13,8 +13,7 @@ namespace Core.Entities.Concrete
         public string ProfileImage { get; set; }
         public int CityId { get; set; }
         public string Email { get; set; }
-        public string AboutMeTr { get; set; }
-        public string AboutMeEn { get; set; }
+        public string AboutMe { get; set; }
         public string Cv { get; set; }
         public byte[] PasswordSalt { get; set; }
         public byte[] PasswordHash { get; set; }

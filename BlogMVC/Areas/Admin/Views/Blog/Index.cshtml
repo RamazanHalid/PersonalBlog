@@ -18,7 +18,7 @@
         <thead>
             <tr>
                 <th></th>
-                <th>Header</th>
+                <th>Title</th>
                 <th>Category</th>
                 <th>Created Date</th>
                 <th>Activity</th>
@@ -32,8 +32,8 @@
             {
                 <tr>
                     <td></td>
-                    <td>@item.HeaderEn</td>
-                    <td width="150">@item.BlogCategory.CategoryNameEn </td>
+                    <td>@item.Title</td>
+                    <td width="150">@item.BlogCategory.Title </td>
                     <td width="120">@item.CreatedDate.ToString("dd/MM/yyyy")</td>
                     <td width="50">
                         @if (@item.IsActive)

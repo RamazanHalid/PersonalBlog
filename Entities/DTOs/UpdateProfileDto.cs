@@ -16,8 +16,7 @@ namespace Entities.DTOs
         public string CellPhone { get; set; }
         public int CityId { get; set; }
         public string Email { get; set; }
-        public string AboutMeTr { get; set; }
-        public string AboutMeEn { get; set; }
+        public string AboutMe { get; set; }
         public string Cv { get; set; }
         public IFormFile CvFile { get; set; }
     }

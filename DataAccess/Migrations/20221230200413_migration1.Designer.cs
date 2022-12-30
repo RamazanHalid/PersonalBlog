@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(PersonalBlogContext))]
-    [Migration("20220515071939_mig2")]
-    partial class mig2
+    [Migration("20221230200413_migration1")]
+    partial class migration1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,10 +43,7 @@ namespace DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AboutMeEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AboutMeTr")
+                    b.Property<string>("AboutMe")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CellPhone")
@@ -115,14 +112,11 @@ namespace DataAccess.Migrations
                     b.Property<int>("BlogCategoryId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("HeaderEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HeaderTr")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -136,10 +130,7 @@ namespace DataAccess.Migrations
                     b.Property<int>("Sort")
                         .HasColumnType("int");
 
-                    b.Property<string>("TextEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TextTr")
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ViewCount")
@@ -159,10 +150,7 @@ namespace DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CategoryNameEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CategoryNameTr")
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BlogCategoryId");
@@ -201,32 +189,23 @@ namespace DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ContentEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContentTr")
+                    b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("HeaderEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HeaderTr")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("SchoolTypeEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SchoolTypeTr")
+                    b.Property<string>("SchoolType")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EducationId");
 
@@ -240,16 +219,10 @@ namespace DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CompanyNameEn")
+                    b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CompanyNameTr")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DescriptionEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DescriptionTr")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("EndDate")
@@ -279,16 +252,7 @@ namespace DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ContentEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContentShortEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContentShortTr")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContentTr")
+                    b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("EndDate")
@@ -300,10 +264,7 @@ namespace DataAccess.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("ProjectNameEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProjectNameTr")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Sort")
@@ -311,6 +272,9 @@ namespace DataAccess.Migrations
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Summary")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Technologies")
                         .HasColumnType("nvarchar(max)");
@@ -330,22 +294,7 @@ namespace DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ContentEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContentSummaryEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContentSummaryTr")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContentTr")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HeaderEn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HeaderTr")
+                    b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
@@ -356,6 +305,12 @@ namespace DataAccess.Migrations
 
                     b.Property<int>("Sort")
                         .HasColumnType("int");
+
+                    b.Property<string>("Summary")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("WhatIdoId");
 

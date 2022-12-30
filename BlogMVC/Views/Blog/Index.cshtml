@@ -26,17 +26,17 @@
                                     <div class="blog-card"  >
                                         <div class="media-block">
                                             <div class="category">
-                                                <a href="#" title="View all posts in WordPress">@item.BlogCategory.CategoryNameEn</a>
+                                                <a href="#" title="View all posts in WordPress">@item.BlogCategory.Title</a>
                                             </div>
                                             <a href="BlogDetails/@item.BlogId">
-                                                <img  src="@item.Image" alt="@item.HeaderEn" title="" />
+                                                <img  src="@item.Image" alt="@item.Title" title="" />
                                                 <div class="mask"></div>
                                             </a>
                                         </div>
                                         <div class="post-info">
                                             <div class="post-date">@item.CreatedDate.ToString("dd.MM.yyyy").Replace(".", "/")</div>
                                             <a href="BlogDetails/@item.BlogId">
-                                                <h4 class="blog-item-title">@item.HeaderEn</h4>
+                                                <h4 class="blog-item-title">@item.Title</h4>
                                             </a>
                                         </div>
                                     </div>

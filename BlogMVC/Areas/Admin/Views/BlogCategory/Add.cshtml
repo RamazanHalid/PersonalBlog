@@ -8,7 +8,6 @@
     <div>
         <h2>Add New Blog Category</h2>
     </div>
-
 </div>
 <br />
 <div class="ibox-content">
@@ -17,15 +16,9 @@
         @Html.HiddenFor(m => m.BlogCategoryId)
         <div class="modal-body">
             <div class="form-group ">
-                <label class=" col-form-label">Blog Category Name Tr</label>
-                @Html.TextBoxFor(m => m.CategoryNameTr, new { @class = "form-control" })
-
-            </div>
-            <div class="form-group ">
-                <label class="col-form-label">Blog Category Name En</label>
-                @Html.TextBoxFor(m => m.CategoryNameEn, new { @class = "form-control" })
-
-            </div>
+                <label class=" col-form-label">Blog Category Title</label>
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+            </div> 
         </div>
         @ViewData["Message"]
         <div style="text-align:center">

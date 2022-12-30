@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccess.Migrations
 {
-    public partial class mig2 : Migration
+    public partial class migration1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,7 @@ namespace DataAccess.Migrations
                 {
                     BlogCategoryId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryNameTr = table.Column<string>(nullable: true),
-                    CategoryNameEn = table.Column<string>(nullable: true)
+                    Title = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -43,12 +42,9 @@ namespace DataAccess.Migrations
                 {
                     EducationId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SchoolTypeTr = table.Column<string>(nullable: true),
-                    SchoolTypeEn = table.Column<string>(nullable: true),
-                    HeaderTr = table.Column<string>(nullable: true),
-                    HeaderEn = table.Column<string>(nullable: true),
-                    ContentTr = table.Column<string>(nullable: true),
-                    ContentEn = table.Column<string>(nullable: true),
+                    SchoolType = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
                     StartDate = table.Column<DateTime>(nullable: false),
                     EndDate = table.Column<DateTime>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false)
@@ -64,12 +60,10 @@ namespace DataAccess.Migrations
                 {
                     ExperienceId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CompanyNameTr = table.Column<string>(nullable: true),
-                    CompanyNameEn = table.Column<string>(nullable: true),
+                    CompanyName = table.Column<string>(nullable: true),
                     RoleTr = table.Column<string>(nullable: true),
                     RoleEn = table.Column<string>(nullable: true),
-                    DescriptionTr = table.Column<string>(nullable: true),
-                    DescriptionEn = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
                     StartDate = table.Column<DateTime>(nullable: false),
                     EndDate = table.Column<DateTime>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false)
@@ -98,12 +92,9 @@ namespace DataAccess.Migrations
                 {
                     ProjectId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProjectNameTr = table.Column<string>(nullable: true),
-                    ProjectNameEn = table.Column<string>(nullable: true),
-                    ContentShortTr = table.Column<string>(nullable: true),
-                    ContentShortEn = table.Column<string>(nullable: true),
-                    ContentTr = table.Column<string>(nullable: true),
-                    ContentEn = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Summary = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
                     StartDate = table.Column<DateTime>(nullable: false),
                     EndDate = table.Column<DateTime>(nullable: false),
@@ -144,8 +135,7 @@ namespace DataAccess.Migrations
                     ProfileImage = table.Column<string>(nullable: true),
                     CityId = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: true),
-                    AboutMeTr = table.Column<string>(nullable: true),
-                    AboutMeEn = table.Column<string>(nullable: true),
+                    AboutMe = table.Column<string>(nullable: true),
                     Cv = table.Column<string>(nullable: true),
                     PasswordSalt = table.Column<byte[]>(nullable: true),
                     PasswordHash = table.Column<byte[]>(nullable: true),
@@ -162,13 +152,10 @@ namespace DataAccess.Migrations
                 {
                     WhatIdoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    HeaderTr = table.Column<string>(nullable: true),
-                    HeaderEn = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
                     Sort = table.Column<int>(nullable: false),
-                    ContentSummaryTr = table.Column<string>(nullable: true),
-                    ContentSummaryEn = table.Column<string>(nullable: true),
-                    ContentTr = table.Column<string>(nullable: true),
-                    ContentEn = table.Column<string>(nullable: true),
+                    Summary = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
                     IsActive = table.Column<bool>(nullable: false)
                 },
@@ -183,12 +170,10 @@ namespace DataAccess.Migrations
                 {
                     BlogId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    HeaderTr = table.Column<string>(nullable: true),
-                    HeaderEn = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
                     BlogCategoryId = table.Column<int>(nullable: false),
-                    TextTr = table.Column<string>(nullable: true),
-                    TextEn = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     KeyWords = table.Column<string>(nullable: true),
                     IsActive = table.Column<bool>(nullable: false),

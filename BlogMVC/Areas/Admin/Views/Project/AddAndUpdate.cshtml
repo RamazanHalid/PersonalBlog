@@ -27,13 +27,9 @@
             <div class=" row">
                 <div class="form-group col-6 ">
                     <label class=" col-form-label">Project Name Tr</label>
-                    @Html.TextBoxFor(m => m.ProjectNameTr, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
 
-                </div>
-                <div class="form-group col-6">
-                    <label class="col-form-label">Project Name En</label>
-                    @Html.TextBoxFor(m => m.ProjectNameEn, new { @class = "form-control m-b" })
-                </div>
+                </div> 
             </div>
             <div class="row">
                 <div class="form-group col-4 ">
@@ -60,25 +56,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-6 ">
+                <div class="form-group">
                     <label class="font-normal">Content Short Tr</label>
-                    @Html.TextAreaFor(m => m.ContentShortTr, 5, 50, new { @class = "form-control" })
+                    @Html.TextAreaFor(m => m.Summary, 5, 50, new { @class = "form-control" })
                 </div>
-                <div class="col-6 ">
-                    <div class="form-group" id="data_1">
-                        <label class="font-normal">Content Short En</label>
-                        @Html.TextAreaFor(m => m.ContentShortEn, 5, 50, new { @class = "form-control" })
-
-                    </div>
-                </div>
+      
             </div>
             <div class="form-group">
                 <label class="font-normal">Content Tr</label>
-                @Html.TextAreaFor(m => m.ContentTr, new { @class = "summernote" })
-            </div>
-            <div class="form-group">
-                <label class="font-normal">Content En</label>
-                @Html.TextAreaFor(m => m.ContentEn, new { @class = "summernote2" })
+                @Html.TextAreaFor(m => m.Content, new { @class = "summernote" })
             </div>
             <div class="form-group">
                 <label class="font-normal">Technologies</label>
@@ -107,11 +93,7 @@
         $('.summernote').summernote(
             {
                 height: 250
-            });
-        $('.summernote2').summernote(
-            {
-                height: 250
-            });
+            }); 
         $('.tagsinput').tagsinput({
             tagClass: 'label label-primary'
         });

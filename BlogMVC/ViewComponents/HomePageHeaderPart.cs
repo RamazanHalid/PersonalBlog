@@ -13,7 +13,7 @@ namespace BlogMVC.ViewComponents
         }
         public IViewComponentResult Invoke()
         {
-            var result = _userService.GetAllUsers().Data;
+            var result = _userService.GetUserInfo().Data;
             return View(result);
         }
     }

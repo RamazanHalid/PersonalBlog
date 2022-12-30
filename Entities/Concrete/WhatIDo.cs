@@ -8,13 +8,10 @@ namespace Entities.Concrete
     public class WhatIDo : IEntity
     {
         public int WhatIdoId { get; set; } 
-        public string HeaderTr { get; set; }
-        public string HeaderEn { get; set; }
+        public string Title { get; set; }
         public int Sort { get; set; }
-        public string ContentSummaryTr { get; set; }
-        public string ContentSummaryEn { get; set; }
-        public string ContentTr { get; set; }
-        public string ContentEn { get; set; }
+        public string Summary { get; set; }
+        public string Content { get; set; }
         public string Image { get; set; } = "";
         public bool IsActive { get; set; }
     }

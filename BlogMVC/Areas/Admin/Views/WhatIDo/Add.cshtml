@@ -24,43 +24,26 @@
     <div class="ibox-content">
         <div class="modal-body">
             <div class=" row">
-                <div class="form-group col-6 ">
-                    <label class=" col-form-label">Header Tr</label>
-                    @Html.TextBoxFor(m => m.HeaderTr, new { @class = "form-control" })
-
-                </div>
                 <div class="form-group col-6">
-                    <label class="col-form-label">Header En</label>
-                    @Html.TextBoxFor(m => m.HeaderEn, new { @class = "form-control m-b" })
+                    <label class=" col-form-label">Title</label>
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-6 ">
-                    <label class="font-normal">Summary Tr</label>
-                    @Html.TextAreaFor(m => m.ContentSummaryTr, 5, 50, new { @class = "form-control" })
+                <div class="form-group  col-6">
+                    <label class="font-normal">Sort</label>
+                    @Html.TextBoxFor(x => x.Sort, new { @class = "form-control", @type = "number" })
                 </div>
-                <div class="col-6 ">
-                    <div class="form-group" id="data_1">
-                        <label class="font-normal">Summary En</label>
-                        @Html.TextAreaFor(m => m.ContentSummaryEn, 5, 50, new { @class = "form-control" })
-
-                    </div>
-                </div>
-
             </div>
             <div class="form-group">
-                <label class="font-normal">Explanation Tr</label>
-                @Html.TextAreaFor(m => m.ContentTr, new { @class = "summernote" })
-            </div>
-            <div class="form-group">
-                <label class="font-normal">Explanation En</label>
-                @Html.TextAreaFor(m => m.ContentEn, new { @class = "summernote2" })
+                <label class="font-normal">Summary</label>
+                @Html.TextAreaFor(m => m.Summary, 5, 250, new { @class = "form-control" })
             </div>
 
-            <div class="form-group  ">
-                <label class="font-normal">Sort</label>
-                @Html.TextBoxFor(x => x.Sort, new { @class = "form-control", @type = "number" })
+
+            <div class="form-group">
+                <label class="font-normal">Content</label>
+                @Html.TextAreaFor(m => m.Content, new { @class = "summernote" })
             </div>
+
 
             <div class="form-group">
                 <label class="font-normal">Image</label>
@@ -87,10 +70,7 @@
             {
                 height: 250
             });
-        $('.summernote2').summernote(
-            {
-                height: 250
-            });
+
         $('.tagsinput').tagsinput({
             tagClass: 'label label-primary'
         });

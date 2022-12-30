@@ -7,6 +7,7 @@ using DataAccess.Abstract;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -55,11 +56,11 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UpdatedSuccessfuly);
         }
 
-        public IDataResult<UserInfoForHeaderPage> GetAllUsers()
+        public IDataResult<UserInfoForHeaderPage> GetUserInfo()
         {
             var users = _userDal.GetAll();
             List<UserInfoForHeaderPage> userInfoForHeaderPages = _mapper.Map<List<UserInfoForHeaderPage>>(users);
-            return new SuccessDataResult<UserInfoForHeaderPage>(userInfoForHeaderPages[0], Messages.GetAllSuccessfuly);
+            return new SuccessDataResult<UserInfoForHeaderPage>(userInfoForHeaderPages.FirstOrDefault(), Messages.GetAllSuccessfuly);
         }
     }
 }

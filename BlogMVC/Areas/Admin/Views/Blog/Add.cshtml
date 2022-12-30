@@ -22,24 +22,17 @@
     </div>
     <br />
     <div class="ibox-content">
-        <div class="modal-body">
-            <div class=" row">
-                <div class="form-group col-6 ">
-                    <label class=" col-form-label">Header Tr</label>
-                    @Html.TextBoxFor(m => m.HeaderTr, new { @class = "form-control" })
-
-                </div>
-                <div class="form-group col-6">
-                    <label class="col-form-label">Header En</label>
-                    @Html.TextBoxFor(m => m.HeaderEn, new { @class = "form-control m-b" })
-                </div>
-            </div>
+        <div class="modal-body"> 
             <div class="row">
-                <div class="form-group col-4 ">
+                <div class="form-group col-3">
+                    <label class=" col-form-label">Title</label>
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                </div>
+                <div class="form-group col-3">
                     <label class="font-normal">Category</label>
                     @Html.DropDownListFor(m => m.BlogCategoryId, (List<SelectListItem>)ViewBag.blogCategories, new { @class = "form-control" })
                 </div>
-                <div class="col-4 ">
+                <div class="col-3">
                     <div class="form-group" id="data_1">
                         <label class="font-normal">Simple data input format</label>
                         <div class="input-group date">
@@ -48,18 +41,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group col-4 ">
+                <div class="form-group col-3 ">
                     <label class="font-normal">Sort</label>
                     @Html.TextBoxFor(x => x.Sort, new { @class = "form-control", @type = "number" })
                 </div>
             </div>
             <div class="form-group">
                 <label class="font-normal">Explanation Tr</label>
-                @Html.TextAreaFor(m => m.TextTr, new { @class = "summernote" })
-            </div>
-            <div class="form-group">
-                <label class="font-normal">Explanation En</label>
-                @Html.TextAreaFor(m => m.TextEn, new { @class = "summernote2" })
+                @Html.TextAreaFor(m => m.Content, new { @class = "summernote" })
             </div>
             <div class="form-group">
                 <label class="font-normal">KeyWords</label>
@@ -86,10 +75,6 @@
     $(document).ready(function () {
 
         $('.summernote').summernote(
-            {
-                height: 250
-            });
-        $('.summernote2').summernote(
             {
                 height: 250
             });

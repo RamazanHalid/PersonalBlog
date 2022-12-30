@@ -12,6 +12,6 @@ namespace Business.Abstract
         IResult Update(UpdateProfileDto updateProfileDto);
         User GetByMail(string email);
         IDataResult<UpdateProfileDto> GetUserById();
-        IDataResult<UserInfoForHeaderPage> GetAllUsers();
+        IDataResult<UserInfoForHeaderPage> GetUserInfo();
     }
 }

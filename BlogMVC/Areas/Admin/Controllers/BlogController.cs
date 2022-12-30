@@ -36,7 +36,7 @@ namespace BlogMVC.Areas.Admin.Controllers
             List<SelectListItem> categoriesSelectList = (from x in categories
                                                          select new SelectListItem
                                                          {
-                                                             Text = x.CategoryNameEn,
+                                                             Text = x.Title,
                                                              Value = x.BlogCategoryId.ToString()
                                                          }
                                                          ).ToList();
@@ -59,7 +59,7 @@ namespace BlogMVC.Areas.Admin.Controllers
             List<SelectListItem> categoriesSelectList = (from x in categories
                                                          select new SelectListItem
                                                          {
-                                                             Text = x.CategoryNameEn,
+                                                             Text = x.Title,
                                                              Value = x.BlogCategoryId.ToString()
                                                          }
                                                          ).ToList();
