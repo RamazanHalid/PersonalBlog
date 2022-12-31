@@ -1,0 +1,59 @@
+﻿@model List<Entities.Concrete.Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Blogs</h1>
+<div class="wrapper wrapper-content  animated fadeInRight blog">
+    <div class="row">
+        @foreach (var blog in @Model)
+        {
+            <div class="col-lg-4">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <a href="~/Blog/BlogDetails/@blog.BlogId" class="btn-link">
+                            <div>
+                                <img style="width: 100%; height: 250px; border-radius: 30px " src="@blog.Image" alt="Alternate Text" />
+                            </div>
+                            <h2>
+                                @blog.Title
+                            </h2>
+                        </a>
+                        <div class="small m-b-xs">
+                            <strong>Ramazan Halid</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> @blog.CreatedDate.ToString("dd/MM/yyyy")</span>
+                        </div>
+                        <p>
+                            @{
+                                string contentWithoutHTML = System.Text.RegularExpressions.Regex.Replace(blog.Content, "<.*?>", String.Empty);
+                                if (contentWithoutHTML.Length > 250)
+                                {
+                                    @(contentWithoutHTML.Substring(0, 250) + "...");
+                                }
+                                else
+                                {
+                                    @contentWithoutHTML
+                                }
+                            }
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Key words:</h5>
+                                @{
+                                    var keywords = blog.KeyWords.Split(",");
+                                    foreach (var keyword in keywords)
+                                    {
+                                        <button class="btn btn-white btn-xs" type="button">@keyword</button>
+                                    }
+                                }
+                            </div>
+                            <div class="col-md-6">
+                                <div class="small text-right">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

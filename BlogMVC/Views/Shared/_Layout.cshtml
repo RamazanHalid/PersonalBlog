@@ -1,18 +1,13 @@
 ﻿<!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>INSPINIA | Dashboard v.4</title>
-
+    <title>Ramazan Halid</title>
     <link href="~/flatlab/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/flatlab/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="~/flatlab/css/animate.css" rel="stylesheet">
     <link href="~/flatlab/css/style.css" rel="stylesheet">
-
 </head>
 
 <body class="top-navigation">
@@ -21,31 +16,27 @@
         <div id="page-wrapper" class="gray-bg">
             <div class="row border-bottom white-bg">
                 <nav class="navbar navbar-expand-lg navbar-static-top" role="navigation">
-                    <!--<div class="navbar-header">-->
-                    <!--<button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">-->
-                    <!--<i class="fa fa-reorder"></i>-->
-                    <!--</button>-->
-
-                    <a href="#" class="navbar-brand">Inspinia</a>
+                    <a href="#" class="navbar-brand">Ramazan Halid</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-reorder"></i>
                     </button>
-
-                    <!--</div>-->
                     <div class="navbar-collapse collapse" id="navbar">
+
                         <ul class="nav navbar-nav mr-auto">
+                        </ul>
+                        <ul class="nav navbar-top-links navbar-right">
                             <li class="active">
-                                <a aria-expanded="false" role="button" href="layouts.html">Blog</a>
+                                <a aria-expanded="false" role="button" href="~/Blog/Index">Blog</a>
+                            </li>
+                            <li class="active">
+                                <a aria-expanded="false" role="button" href="~/Contact/Index">Contact</a>
                             </li>
                         </ul>
                     </div>
                 </nav>
             </div>
-            <div class="wrapper wrapper-content">
-                <div class="container">
-                    @RenderBody()
-                </div>
-
+            <div class="container-fluid">
+                @RenderBody()
             </div>
             <div class="footer">
                 <div>
@@ -54,9 +45,6 @@
             </div>
         </div>
     </div>
-
-
-
     <!-- Mainly scripts -->
     <script src="~/flatlab/js/jquery-3.1.1.min.js"></script>
     <script src="~/flatlab/js/popper.min.js"></script>
